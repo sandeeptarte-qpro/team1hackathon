@@ -65,13 +65,12 @@ public class CrudOperationHandler {
     }
 
     public static boolean insertRecord(Table table, String columns) {
-        String tableName = table.getTableName();
-        Map<String, List> rows = table.getRows();
-        Map<String, ColumnMetadata> columnsMetadata = table.getColumns();
-        columns = columns.substring(1, columns.length() - 1);
-        List<String> columnValList = Arrays.asList(columns.split(","));
-
         try {
+            Map<String, List> rows = table.getRows();
+            Map<String, ColumnMetadata> columnsMetadata = table.getColumns();
+            columns = columns.substring(1, columns.length() - 1);
+            List<String> columnValList = Arrays.asList(columns.split(","));
+
             for (String colVal : columnValList) {
                 String[] values = colVal.strip().split(" ");
                 String columnName = values[0];
