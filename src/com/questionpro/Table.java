@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Table {
+    private String tableName;
     private Map<String, ColumnMetadata> columns = new HashMap<>();
     private Map<String, List> rows = new HashMap<>();
 
@@ -30,5 +31,13 @@ public class Table {
 
     public void setRows(Map<String, List> rows) {
         this.rows = rows;
+    }
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
 }

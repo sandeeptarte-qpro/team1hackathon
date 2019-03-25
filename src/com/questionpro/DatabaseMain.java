@@ -1,21 +1,30 @@
 package com.questionpro;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DatabaseMain {
-
+    public static Map<String,Table> dbContainer = new HashMap<>();
     private boolean executeQuery(String command, String tableName, String columns){
+
         switch (command){
             case "MAKE" :
-                //createTable();
+                Table table = CrudOperationHandler.createTable(tableName, columns);
+                if (table != null ){
+                    dbContainer.put(tableName,table);
+                }
                 break;
             case "PUSH" : break;
                 //insertRecord();
             case "PULL" : break;
                 //fetchRecord();
         }
+
+        System.out.println("db container size is :"+dbContainer.size());
+        System.out.println("table names are : "+dbContainer.keySet());
         return true;
     }
 
