@@ -12,8 +12,9 @@ public class DatabaseMain {
                 //createTable();
                 break;
             case "PUSH" : break;
-                //insertIntoTable();
+                //insertRecord();
             case "PULL" : break;
+                //fetchRecord();
         }
         return true;
     }
