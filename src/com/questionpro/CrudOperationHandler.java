@@ -15,7 +15,8 @@ public class CrudOperationHandler {
 
             Arrays.stream(splitStringArray).forEach(s -> {
                         String[] columnDetail = s.strip().split(" ");
-                        ColumnMetadata columnMetadata = new ColumnMetadata(columnDetail[1], 10);
+                        ColumnMetadata columnMetadata = new ColumnMetadata(columnDetail[1], columnDetail.length>2 ? columnDetail[2].isBlank() ? 10:
+                                Integer.parseInt(columnDetail[2]) : 10);
                         tableColumns.put(columnDetail[0], columnMetadata);
                     }
             );
