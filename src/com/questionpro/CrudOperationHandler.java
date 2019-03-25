@@ -95,16 +95,11 @@ public class CrudOperationHandler {
         try {
             columns = columns.substring(1, columns.length() - 1);
             if("*".equals(columns.strip())){
-                for (Map.Entry row : rows.entrySet()){
-                    System.out.println(row.getKey() + " : " +row.getValue());
-                }
+                rows.entrySet().stream().forEach(r-> System.out.println(r.getKey() + " : " +r.getValue()));
                 return true;
             }
             List<String> columnList = Arrays.asList(columns.split(","));
-            for (String column : columnList) {
-                List colValues = rows.get(column);
-                System.out.println(column + " : " + colValues);
-            }
+            columnList.stream().forEach(s -> System.out.println(s + " : " + rows.get(s)));
         } catch (Exception exception){
             return false;
         }
